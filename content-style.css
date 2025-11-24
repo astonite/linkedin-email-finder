@@ -1,0 +1,631 @@
+/* Sales Navigator Button Styles */
+
+/* Lead list table row buttons */
+.sales-nav-email-btn {
+    background: linear-gradient(135deg, #0077b5, #005885);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    margin-right: 8px;
+    box-shadow: 0 2px 8px rgba(0, 119, 181, 0.3);
+    position: relative;
+    z-index: 1000;
+    vertical-align: middle;
+}
+
+.sales-nav-email-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 119, 181, 0.4);
+    background: linear-gradient(135deg, #0088cc, #006699);
+}
+
+.sales-nav-email-btn:active {
+    transform: scale(0.95);
+}
+
+.sales-nav-email-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Make sure the button fits well in the Sales Navigator table */
+.list-people-detail-header__actions {
+    text-align: left !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+.list-people-detail-header__actions .sales-nav-email-btn {
+    margin-right: 0;
+}
+
+/* Square sidebar button (new style) */
+.sales-nav-sidebar-email-btn-square {
+    background: linear-gradient(135deg, #0077b5, #005885);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    margin-right: 8px;
+    box-shadow: 0 2px 8px rgba(0, 119, 181, 0.3);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    flex-shrink: 0;
+}
+
+.sales-nav-sidebar-email-btn-square:hover {
+    background: linear-gradient(135deg, #0088cc, #006699);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 119, 181, 0.4);
+}
+
+.sales-nav-sidebar-email-btn-square:active {
+    transform: translateY(0);
+}
+
+.sales-nav-sidebar-email-btn-square:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Old sidebar button (keeping for backwards compatibility) */
+.sales-nav-sidebar-email-btn {
+    background: linear-gradient(135deg, #0077b5, #005885);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    margin-right: 8px;
+    box-shadow: 0 2px 8px rgba(0, 119, 181, 0.3);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 32px;
+}
+
+.sales-nav-sidebar-email-btn:hover {
+    background: linear-gradient(135deg, #0088cc, #006699);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 119, 181, 0.4);
+}
+
+.sales-nav-sidebar-email-btn:active {
+    transform: translateY(0);
+}
+
+.sales-nav-sidebar-email-btn .email-icon {
+    font-size: 16px;
+}
+
+.sales-nav-sidebar-email-btn .btn-text {
+    font-size: 14px;
+}
+
+/* Profile page button */
+.sales-nav-profile-email-btn {
+    background: linear-gradient(135deg, #0077b5, #005885);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    margin-left: 8px;
+    box-shadow: 0 2px 8px rgba(0, 119, 181, 0.3);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.sales-nav-profile-email-btn:hover {
+    background: linear-gradient(135deg, #0088cc, #006699);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 119, 181, 0.4);
+}
+
+.sales-nav-profile-email-btn:active {
+    transform: translateY(0);
+}
+
+.sales-nav-profile-email-btn .email-icon {
+    font-size: 16px;
+}
+
+.sales
+/* content-style.css - Styles for the LinkedIn extension */
+
+/* Floating button */
+#linkedin-email-finder-btn {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    z-index: 9999;
+    background: linear-gradient(135deg, #0077b5, #005885);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0, 119, 181, 0.3);
+    transition: all 0.3s ease;
+    user-select: none;
+    backdrop-filter: blur(10px);
+}
+
+#linkedin-email-finder-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 119, 181, 0.4);
+    background: linear-gradient(135deg, #0088cc, #006699);
+}
+
+#linkedin-email-finder-btn:active {
+    transform: translateY(0);
+}
+
+.finder-btn-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.finder-btn-icon {
+    font-size: 16px;
+}
+
+.finder-btn-loading {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Result popup */
+#linkedin-email-result {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10000;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.result-content {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    min-width: 350px;
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.result-content {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    min-width: 350px;
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: slideIn 0.3s ease-out;
+    padding: 0;
+}
+
+.result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px 16px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.result-header h3 {
+    margin: 0;
+    color: #1f2937;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #6b7280;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.close-btn:hover {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+.result-details {
+    padding: 16px 24px;
+}
+
+.result-details p {
+    margin: 0 0 12px 0;
+    color: #374151;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.result-details p:last-child {
+    margin-bottom: 0;
+}
+
+.result-details strong {
+    color: #1f2937;
+    font-weight: 600;
+}
+
+.email {
+    color: #0077b5;
+    font-weight: 500;
+    font-family: 'Monaco', 'Consolas', monospace;
+}
+
+.result-actions {
+    padding: 16px 24px 20px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.copy-email-btn {
+    background: #0077b5;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+    width: 100%;
+}
+
+.copy-email-btn:hover {
+    background: #005885;
+}
+
+/* Clay button styles */
+.clay-btn {
+    background: #7c3aed;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+    margin-left: 8px;
+}
+
+.clay-btn:hover {
+    background: #6d28d9;
+}
+
+.clay-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* No email found state */
+.no-email {
+    color: #ef4444;
+    font-weight: 500;
+    font-style: italic;
+}
+
+/* Multiple buttons in actions */
+.result-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.result-actions button {
+    flex: 1;
+}
+
+.result-actions .clay-btn {
+    flex: 0 0 auto;
+    margin-left: 0;
+}
+
+/* Error popup */
+#linkedin-email-error {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10000;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.error-content {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    min-width: 300px;
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-left: 4px solid #ef4444;
+    animation: slideIn 0.3s ease-out;
+}
+
+.error-content {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    min-width: 300px;
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-left: 4px solid #ef4444;
+    animation: slideIn 0.3s ease-out;
+    padding: 0;
+}
+
+.error-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px 16px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.error-header h3 {
+    margin: 0;
+    color: #ef4444;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.error-content p {
+    margin: 0;
+    padding: 16px 24px 20px;
+    color: #374151;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Sales Navigator Button Styles */
+
+/* Lead list table row buttons */
+.sales-nav-email-btn {
+    background: linear-gradient(135deg, #0077b5, #005885);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    margin-right: 8px;
+    box-shadow: 0 2px 8px rgba(0, 119, 181, 0.3);
+    position: relative;
+    z-index: 1000;
+}
+
+.sales-nav-email-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 119, 181, 0.4);
+    background: linear-gradient(135deg, #0088cc, #006699);
+}
+
+.sales-nav-email-btn:active {
+    transform: scale(0.95);
+}
+
+.sales-nav-email-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Sidebar button */
+.sales-nav-sidebar-email-btn {
+    background: linear-gradient(135deg, #0077b5, #005885);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    margin-right: 8px;
+    box-shadow: 0 2px 8px rgba(0, 119, 181, 0.3);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.sales-nav-sidebar-email-btn:hover {
+    background: linear-gradient(135deg, #0088cc, #006699);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 119, 181, 0.4);
+}
+
+.sales-nav-sidebar-email-btn:active {
+    transform: translateY(0);
+}
+
+.sales-nav-sidebar-email-btn .email-icon {
+    font-size: 16px;
+}
+
+.sales-nav-sidebar-email-btn .btn-text {
+    font-size: 14px;
+}
+
+/* Profile page button */
+.sales-nav-profile-email-btn {
+    background: linear-gradient(135deg, #0077b5, #005885);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    margin-left: 8px;
+    box-shadow: 0 2px 8px rgba(0, 119, 181, 0.3);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.sales-nav-profile-email-btn:hover {
+    background: linear-gradient(135deg, #0088cc, #006699);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 119, 181, 0.4);
+}
+
+.sales-nav-profile-email-btn:active {
+    transform: translateY(0);
+}
+
+.sales-nav-profile-email-btn .email-icon {
+    font-size: 16px;
+}
+
+.sales-nav-profile-email-btn .btn-text {
+    font-size: 14px;
+}
+
+/* Responsive adjustments for Sales Navigator */
+@media (max-width: 1200px) {
+
+    .sales-nav-sidebar-email-btn .btn-text,
+    .sales-nav-profile-email-btn .btn-text {
+        display: none;
+    }
+
+    .sales-nav-sidebar-email-btn,
+    .sales-nav-profile-email-btn {
+        padding: 8px 12px;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    #linkedin-email-finder-btn {
+        top: 80px;
+        right: 15px;
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+
+    .finder-btn-text {
+        display: none;
+    }
+
+    #linkedin-email-result,
+    #linkedin-email-error {
+        min-width: 280px;
+        margin: 20px;
+    }
+
+    .sales-nav-email-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 12px;
+    }
+
+    .sales-nav-sidebar-email-btn,
+    .sales-nav-profile-email-btn {
+        padding: 6px 10px;
+    }
+}

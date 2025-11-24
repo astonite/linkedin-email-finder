@@ -1,0 +1,554 @@
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            width: 400px;
+            min-height: 400px;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 14px;
+            background: #f8fafc;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0077b5, #005885);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .status {
+            text-align: center;
+            padding: 16px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 16px;
+        }
+
+        .instructions {
+            background: white;
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            color: #6b7280;
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        .instructions strong {
+            color: #374151;
+        }
+
+        .linkedin-link {
+            color: #0077b5;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .linkedin-link:hover {
+            text-decoration: underline;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-weight: 600;
+            color: #374151;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .search-count {
+            font-size: 12px;
+            color: #6b7280;
+            font-weight: normal;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-small {
+            background: #ef4444;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 4px 8px;
+            font-size: 11px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-small:hover {
+            background: #dc2626;
+        }
+
+        .btn-small:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+        }
+
+        .btn-delete-selected {
+            background: #f97316;
+        }
+
+        .btn-delete-selected:hover {
+            background: #ea580c;
+        }
+
+        .btn-select-all {
+            background: #6b7280;
+        }
+
+        .btn-select-all:hover {
+            background: #4b5563;
+        }
+
+        .history-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .history-item {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e5e7eb;
+            transition: background-color 0.2s;
+            display: flex;
+            align-items: start;
+            gap: 12px;
+        }
+
+        .history-item:hover {
+            background: #f9fafb;
+        }
+
+        .history-item:last-child {
+            border-bottom: none;
+        }
+
+        .history-checkbox {
+            margin-top: 4px;
+            cursor: pointer;
+        }
+
+        .history-content {
+            flex: 1;
+            cursor: pointer;
+        }
+
+        .history-name {
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 2px;
+        }
+
+        .history-company {
+            font-size: 12px;
+            color: #6b7280;
+            margin-bottom: 4px;
+        }
+
+        .history-email {
+            font-size: 12px;
+            color: #0077b5;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+
+        .history-delete {
+            background: none;
+            border: none;
+            color: #ef4444;
+            cursor: pointer;
+            padding: 4px;
+            font-size: 16px;
+            line-height: 1;
+            transition: transform 0.2s;
+        }
+
+        .history-delete:hover {
+            transform: scale(1.2);
+        }
+
+        .no-history {
+            padding: 20px;
+            text-align: center;
+            color: #6b7280;
+            font-style: italic;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #6b7280;
+        }
+
+        /* Scrollbar styling */
+        .history-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .history-container::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 3px;
+        }
+
+        .history-container::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+
+        .history-container::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>📧 LinkedIn Email Finder</h1>
+    </div>
+
+    <div class="content">
+        <div class="status">
+            <div id="status-text">Loading...</div>
+        </div>
+
+        <div class="instructions">
+            <strong>How to use:</strong><br>
+            1. Go to any <a href="https://www.linkedin.com/in/" class="linkedin-link" target="_blank">LinkedIn
+                profile</a><br>
+            2. Look for the "Find Email" button<br>
+            3. Click it to get the person's email address
+        </div>
+
+        <div class="section-header">
+            <div class="section-title">
+                Search History
+                <span class="search-count" id="search-count"></span>
+            </div>
+            <div class="action-buttons">
+                <button id="select-all" class="btn-small btn-select-all" style="display: none;">Select All</button>
+                <button id="delete-selected" class="btn-small btn-delete-selected" style="display: none;">Delete
+                    Selected</button>
+                <button id="clear-history" class="btn-small">Clear All</button>
+            </div>
+        </div>
+
+        <div class="history-container">
+            <div id="history-content" class="loading">
+                Loading history...
+            </div>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            width: 400px;
+            min-height: 400px;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 14px;
+            background: #f8fafc;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0077b5, #005885);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .status {
+            text-align: center;
+            padding: 16px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 16px;
+        }
+
+        .instructions {
+            background: white;
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            color: #6b7280;
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        .instructions strong {
+            color: #374151;
+        }
+
+        .linkedin-link {
+            color: #0077b5;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .linkedin-link:hover {
+            text-decoration: underline;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-weight: 600;
+            color: #374151;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .search-count {
+            font-size: 12px;
+            color: #6b7280;
+            font-weight: normal;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-small {
+            background: #ef4444;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 4px 8px;
+            font-size: 11px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-small:hover {
+            background: #dc2626;
+        }
+
+        .btn-small:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+        }
+
+        .btn-delete-selected {
+            background: #f97316;
+        }
+
+        .btn-delete-selected:hover {
+            background: #ea580c;
+        }
+
+        .btn-select-all {
+            background: #6b7280;
+        }
+
+        .btn-select-all:hover {
+            background: #4b5563;
+        }
+
+        .history-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .history-item {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e5e7eb;
+            transition: background-color 0.2s;
+            display: flex;
+            align-items: start;
+            gap: 12px;
+        }
+
+        .history-item:hover {
+            background: #f9fafb;
+        }
+
+        .history-item:last-child {
+            border-bottom: none;
+        }
+
+        .history-checkbox {
+            margin-top: 4px;
+            cursor: pointer;
+        }
+
+        .history-content {
+            flex: 1;
+            cursor: pointer;
+        }
+
+        .history-name {
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 2px;
+        }
+
+        .history-company {
+            font-size: 12px;
+            color: #6b7280;
+            margin-bottom: 4px;
+        }
+
+        .history-email {
+            font-size: 12px;
+            color: #0077b5;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+
+        .history-delete {
+            background: none;
+            border: none;
+            color: #ef4444;
+            cursor: pointer;
+            padding: 4px;
+            font-size: 16px;
+            line-height: 1;
+            transition: transform 0.2s;
+        }
+
+        .history-delete:hover {
+            transform: scale(1.2);
+        }
+
+        .no-history {
+            padding: 20px;
+            text-align: center;
+            color: #6b7280;
+            font-style: italic;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #6b7280;
+        }
+
+        /* Scrollbar styling */
+        .history-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .history-container::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 3px;
+        }
+
+        .history-container::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+
+        .history-container::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>📧 LinkedIn Email Finder</h1>
+    </div>
+
+    <div class="content">
+        <div class="status">
+            <div id="status-text">Loading...</div>
+        </div>
+
+        <div class="instructions">
+            <strong>How to use:</strong><br>
+            1. Go to any <a href="https://www.linkedin.com/in/" class="linkedin-link" target="_blank">LinkedIn
+                profile</a><br>
+            2. Look for the "Find Email" button<br>
+            3. Click it to get the person's email address
+        </div>
+
+        <div class="section-header">
+            <div class="section-title">
+                Search History
+                <span class="search-count" id="search-count"></span>
+            </div>
+            <div class="action-buttons">
+                <button id="export-csv" class="btn-small btn-export" style="background: #10b981;">Export CSV</button>
+                <button id="select-all" class="btn-small btn-select-all" style="display: none;">Select All</button>
+                <button id="delete-selected" class="btn-small btn-delete-selected" style="display: none;">Delete
+                    Selected</button>
+                <button id="clear-history" class="btn-small">Clear All</button>
+            </div>
+        </div>
+
+        <div class="search-bar-container" style="margin-bottom: 12px;">
+            <input type="text" id="search-input" placeholder="🔍 Search by name, company, or email..." style="width: 100%; padding: 8px 12px; border: 1px solid #e5e7eb; border-radius: 6px; 
+                          font-size: 13px; background: white; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);">
+        </div>
+
+        <div class="history-container">
+            <div id="history-content" class="loading">
+                Loading history...
+            </div>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>

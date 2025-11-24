@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "LinkedIn Email Finder",
+  "version": "6.0",
+  "description": "Find email addresses for LinkedIn profiles using ZoomInfo",
+
+  "permissions": ["storage", "activeTab", "scripting", "notifications"],
+
+  "host_permissions": [
+    "https://www.linkedin.com/*",
+    "https://api.zoominfo.com/*"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.linkedin.com/in/*",
+        "https://www.linkedin.com/sales/*"
+      ],
+      "js": [
+        "config.js",
+        "modules/error-handler.js",
+        "modules/data-extractor.js",
+        "modules/ai-extractor.js",
+        "modules/ui-manager.js",
+        "modules/clay-handler.js",
+        "modules/sales-navigator.js",
+        "content-script-main.js"
+      ],
+      "css": ["content-style.css"]
+    }
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "LinkedIn Email Finder"
+  },
+
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
